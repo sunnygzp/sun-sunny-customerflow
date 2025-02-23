@@ -3,16 +3,16 @@ package com.example.app.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDate;
+import java.math.BigDecimal;
 
 @Entity
-@Table(name = "customers")
+@Table(name = "products")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Customer {
+public class ProductInfo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,16 +21,14 @@ public class Customer {
     @Column(nullable = false, length = 100)
     private String name;
 
-    @Column(unique = true, nullable = false)
-    private String email;
-this my change to test new commit
-    @Column(nullable = false, length = 15)
-    private String phone;
-
-    private LocalDate dateOfBirth;
-
     @Column(length = 255)
-    private String address;
+    private String description;
+
+    @Column(nullable = false)
+    private BigDecimal price;
+
+    @Column(nullable = false)
+    private int quantity;
 
     private boolean isActive = true;
 }
